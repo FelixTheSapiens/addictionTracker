@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba2754f6.css",
-    "main.js": "/static/js/main.020e9172.js",
-    "index.html": "/index.html",
-    "main.ba2754f6.css.map": "/static/css/main.ba2754f6.css.map",
-    "main.020e9172.js.map": "/static/js/main.020e9172.js.map"
+    "main.css": "/excerciseTimer/static/css/main.ba2754f6.css",
+    "main.js": "/excerciseTimer/static/js/main.83a80f51.js",
+    "index.html": "/excerciseTimer/index.html",
+    "main.ba2754f6.css.map": "/excerciseTimer/static/css/main.ba2754f6.css.map",
+    "main.83a80f51.js.map": "/excerciseTimer/static/js/main.83a80f51.js.map"
   },
   "entrypoints": [
     "static/css/main.ba2754f6.css",
-    "static/js/main.020e9172.js"
+    "static/js/main.83a80f51.js"
   ]
 }
