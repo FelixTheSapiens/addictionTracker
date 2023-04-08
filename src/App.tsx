@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
-import { getTimePeriod, getTime, saveTime, getHighscore, saveHighscore, getSober, saveSober, dropHighscore } from './functions/timeFunctions';
+import { getTimePeriod, getTime, saveTime, getHighscore, saveHighscore, getRunning, saveRunning, dropHighscore } from './functions/timeFunctions';
 
 
 function App() {
 
-  const [isSober, setSober] = useState(getSober());
+  const [isRunning, setRunning] = useState(getRunning());
   const [time, setTime]  = useState(getTime());
   const [highscore, setHighscore] = useState(getHighscore());
 
@@ -13,7 +13,7 @@ function App() {
 
     let intervalId: NodeJS.Timeout;
 
-    if (isSober) {
+    if (isRunning) {
       intervalId = setInterval(() => {
         setTime(time => time + 1);
       }, 1000);
@@ -25,24 +25,37 @@ function App() {
     setHighscore(getHighscore());
 
     return () => clearInterval(intervalId);
-  }, [isSober, time]);
+  }, [isRunning, time]);
 
-  const soberSwitch = () => {setSober(sober => !sober); saveSober(isSober)};
+  const runningSwitch = () => {
+    setRunning(running => !running);
+    saveRunning(!isRunning);
+    if(!isRunning) {
+      document.body.classList.add('gradient');
+    } else {
+      document.body.classList.remove('gradient');
+    }
+    };
+
   const reset = () => {
     dropHighscore();
     setHighscore(0);
     setTime(0);
     saveTime(0);
-    setSober(false);
-    saveSober(false);
+    setRunning(false);
+    saveRunning(false);
   };
 
   return (
     <div className="App">
-      <button onClick={reset}>Reset</button>
-      <h1>{getTimePeriod(highscore)}</h1>
-      <button onClick={soberSwitch}>
-        <h1>{getTimePeriod(time)}</h1>
+      <button onClick={reset} className='Reset'>
+        Reset
+      </button>
+      <h1 className='Highscore'>
+        {getTimePeriod(highscore)}
+      </h1>
+      <button onClick={runningSwitch} className='Timer'>
+        <h1 className='TimerText'>{getTimePeriod(time)}</h1>
       </button>
     </div>
   );

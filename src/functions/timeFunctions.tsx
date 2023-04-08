@@ -1,13 +1,3 @@
-interface TimePeriod {
-  year?: number;
-  month?: number;
-  week?: number;
-  day?: number;
-  hour?: number;
-  minute?: number;
-  second?: number;
-}
-
 export function getTimePeriod(seconds: number): string {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds - (hours * 3600)) / 60);
@@ -42,14 +32,14 @@ export function getTime(): number {
   return JSON.parse(timeString || "0");
 }
 
-export function saveSober(sober: boolean) {
-  const stringified = JSON.stringify(sober);
-  localStorage.setItem("sober", stringified);
+export function saveRunning(running: boolean) {
+  const stringified = JSON.stringify(running);
+  localStorage.setItem("running", stringified);
 }
 
-export function getSober(): boolean {
-  const sober = localStorage.getItem("sober");
-  return JSON.parse(sober || "false");
+export function getRunning(): boolean {
+  const running = localStorage.getItem("running");
+  return JSON.parse(running || "false");
 }
 
 export function saveHighscore(score: number) {

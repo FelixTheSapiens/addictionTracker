@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-size: 400% 400%;
+	height: 100vh;
+    background-color: black;
+}
+
+.gradient {
+    background: linear-gradient(-45deg, #23a6d5, #034bc0);
+}
+
+
+.Reset {
+    position:fixed;
+}
+
+.Timer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-width: 0.3rem;
+    border-color: white;
+    background-color: black;
+    border-radius: 25%;
+    min-height: 25vh;
+    min-width: 25vh;
+    line-break: auto;
+    transition: background-color 0.2s ease-out;
+}
+
+.Timer:active {
+    background-color: rgb(125, 125, 125)
+}
+
+.TimerText {
+    color: white;
+}
+
+.Highscore {
+    color: white;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    font-size: 4rem;
+}
+
+.Reset {
+    border-radius: 0 0 25% 0;
+    border-width: 0;
+    background-color: #e92700;
+    height: 2rem;
+    width: 3rem;
+    color: white;
+}
+
+* {
+    font-family: 'Varela Round';
+}
